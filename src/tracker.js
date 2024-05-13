@@ -1,14 +1,15 @@
+'use strict';
+
 const dgram = require('dgram');
 const Buffer = require('buffer').Buffer;
 const urlParse = require('url').parse;
 const crypto = require('crypto');
 const torrentParser = require('./torrent-parser');
-const util = require('./util');
+const util = require('../util');
 
 module.exports.getPeers = (torrent, callback) => {
   const socket = dgram.createSocket('udp4');
   const url = torrent.announce.toString('utf8');
-  const announceReq = buildAnnounceReq(connResp.connectionId, torrent);
 
   // 1. send connect request
   udpSend(socket, buildConnReq(), url);
